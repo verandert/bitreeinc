@@ -47,7 +47,14 @@ void InOrderTraverse(BiTreeNode *T){
     printf("\n");
     DestroyStack(&S);
 }
-
+//中序递归遍历二叉树
+void InOrderTraverseV1(BiTreeNode *T){
+    if(T){  
+        InOrderTraverseV1(T->lchild);
+        printf("%c ", T->data);
+        InOrderTraverseV1(T->rchild);
+    }
+}
 //先序非递归遍历二叉树
 void PreOrderTraverse(BiTreeNode *T){
     BiTreeNode *p;
@@ -70,7 +77,14 @@ void PreOrderTraverse(BiTreeNode *T){
     printf("\n");
     DestroyStack(&S);
 }
-
+//先序递归遍历二叉树
+void PreOrderTraverseV1(BiTreeNode *T){
+    if(T){
+        printf("%c ", T->data);
+        PreOrderTraverseV1(T->lchild);
+        PreOrderTraverseV1(T->rchild);
+    }
+}
 //后序非递归遍历二叉树
 void PostOrderTraverse(BiTreeNode *T){
     BiTreeNode *p, *flag = NULL;
@@ -104,4 +118,13 @@ void PostOrderTraverse(BiTreeNode *T){
     }
     printf("\n");
     DestroyStack(&S);
+}
+
+//后序递归遍历二叉树
+void PostOrderTraverseV1(BiTreeNode *T){
+    if(T){
+        PreOrderTraverseV1(T->lchild);
+        PreOrderTraverseV1(T->rchild);
+        printf("%c ", T->data);
+    }
 }
